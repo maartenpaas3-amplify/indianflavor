@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+@theme {
+  --color-zinc-300: #9A9490;
+  --color-zinc-400: #9A9490;
+  --color-zinc-500: #9A9490;
+  --color-gray-300: #9A9490;
+  --color-gray-400: #9A9490;
+  --color-gray-500: #9A9490;
+  --color-slate-300: #9A9490;
+  --color-slate-400: #9A9490;
+  --color-slate-500: #9A9490;
+}
+
+/* Ensure secondary body and description text across the site uses the shared muted warm-gray tone, consistent with the main site */
+.text-zinc-400,
+.text-zinc-300,
+.text-gray-400,
+.text-gray-300,
+.text-slate-400,
+.text-slate-300 {
+  color: #9A9490;
+}
+
+@layer base {
+  :root {
+    --gold-primary: #C9A15A;
+    --gold-light: #E8D4A8;
+    --gold-dark: #8C7040;
+    --bg-dark: #0B0B0C;
+    --bg-card: #131315;
+    --bg-card-hover: #1A1A1E;
+  }
+
+  body {
+    background-color: #0B0B0C;
+    color: #F3ECDD;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: 'Bodoni Moda', Georgia, serif;
+  }
+}
+
+/* Gold Gradient utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E8D4A8 0%, #C9A15A 50%, #8C7040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C9A15A 0%, #B08D48 50%, #8C7040 100%);
+}
+
+.bg-gold-gradient-hover:hover {
+  background: linear-gradient(135deg, #E8D4A8 0%, #C9A15A 50%, #8C7040 100%);
+}
+
+.border-gold-subtle {
+  border-color: rgba(201, 161, 90, 0.35);
+}
+
+.border-gold-glow {
+  box-shadow: 0 0 15px rgba(201, 161, 90, 0.25);
+}
+
+/* Custom horizontal scrollbar for category pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #131315;
+}
+::-webkit-scrollbar-thumb {
+  background: #131315;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A15A;
+}
+
+/* Dedicated Add to Order button styles with high specificity */
+.add-to-order-btn,
+.menu-card .add-to-order-btn,
+button.add-to-order-btn {
+  background-color: #0B0B0C !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(201, 161, 90, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.add-to-order-btn:hover,
+.menu-card .add-to-order-btn:hover,
+button.add-to-order-btn:hover {
+  background: linear-gradient(135deg, #C9A15A 0%, #8C7040 50%, #8C7040 100%) !important;
+  background-color: #C9A15A !important;
+  color: #0B0B0C !important;
+  border-color: #C9A15A !important;
+}
+
+.add-to-order-btn:hover *,
+.menu-card .add-to-order-btn:hover * {
+  color: #0B0B0C !important;
+  fill: currentColor;
+}
+
