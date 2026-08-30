@@ -207,7 +207,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'rgba(58, 10, 11, 0.75)',
+            background: 'rgba(11, 11, 12, 0.75)',
           }}
         />
 

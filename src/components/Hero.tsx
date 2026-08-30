@@ -1,5 +1,7 @@
 import React from 'react';
 import { Language } from '../types';
+import heroDesktop from '../assets/images/hero-home.webp';
+import heroMobile from '../assets/images/hero-home-mobile.webp';
 
 interface HeroProps {
   lang?: Language;
@@ -15,21 +17,24 @@ export const Hero: React.FC<HeroProps> = ({ lang = 'fr' }) => {
 
   return (
     <section className="relative overflow-hidden py-5 sm:py-7 bg-[#0B0B0C]">
-      {/* Background Image Layer with horizontal flip and overlay */}
+      {/* Background Image Layer — same hero photos as the main site, swapped by breakpoint */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-[position:top_left] md:bg-center"
-          style={{
-            backgroundImage: `url('https://i.ibb.co/ym6PdsLV/indianflavorbackground.webp')`,
-            transform: 'scaleX(-1)',
-          }}
+        <img
+          src={heroMobile}
+          alt=""
+          className="sm:hidden absolute inset-0 w-full h-full object-cover object-top"
         />
-        {/* Dark wine gradient overlay */}
+        <img
+          src={heroDesktop}
+          alt=""
+          className="hidden sm:block absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay, matching the main site's brand background */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(143,45,46,0.92) 0%, rgba(143,45,46,0.65) 60%, rgba(143,45,46,0.35) 100%)',
+              'linear-gradient(to right, rgba(11,11,12,0.92) 0%, rgba(11,11,12,0.65) 60%, rgba(11,11,12,0.35) 100%)',
           }}
         />
       </div>
