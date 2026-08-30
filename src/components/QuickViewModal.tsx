@@ -38,7 +38,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative bg-[#4a0f10] border border-[#f3d382]/40 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
+        className="relative bg-[#131315] border border-[#C9A15A]/40 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -50,7 +50,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         </button>
 
         {/* Large Food Image */}
-        <div className="relative aspect-[16/10] w-full bg-[#3a0a0b]">
+        <div className="relative aspect-[16/10] w-full bg-[#0B0B0C]">
           <img
             src={item.image}
             alt={name}
@@ -60,10 +60,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               e.currentTarget.src = 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=600&q=80';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#4a0f10] via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#131315] via-transparent to-black/40" />
 
           {/* Price overlay */}
-          <div className="absolute bottom-4 right-4 bg-[#3a0a0b]/95 border border-[#f3d382] px-4 py-1.5 rounded-full shadow-md">
+          <div className="absolute bottom-4 right-4 bg-[#0B0B0C]/95 border border-[#C9A15A] px-4 py-1.5 rounded-full shadow-md">
             <span className="font-serif-luxury text-lg font-bold text-gold-gradient">
               {item.price} DH
             </span>
@@ -74,7 +74,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         <div className="p-6 space-y-4">
           <div className="flex flex-wrap gap-2">
             {item.isPopular && (
-              <span className="flex items-center gap-1 bg-[#f3d382] text-[#3a0a0b] text-xs font-bold px-2.5 py-0.5 rounded-full shadow">
+              <span className="flex items-center gap-1 bg-[#C9A15A] text-[#0B0B0C] text-xs font-bold px-2.5 py-0.5 rounded-full shadow">
                 <Sparkles className="w-3 h-3 fill-current" />
                 {lang === 'ar' ? 'مميز' : lang === 'fr' ? 'Spécialité Maison' : 'House Special'}
               </span>
@@ -99,11 +99,11 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
           <p className="text-zinc-200 text-sm leading-relaxed">{desc}</p>
 
-          <div className="pt-4 border-t border-[#f3d382]/20 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3 bg-[#3a0a0b] border border-[#f3d382]/40 p-1.5 rounded-xl">
+          <div className="pt-4 border-t border-[#C9A15A]/20 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 bg-[#0B0B0C] border border-[#C9A15A]/40 p-1.5 rounded-xl">
               <button
                 onClick={() => onUpdateQuantity(Math.max(0, quantity - 1))}
-                className="w-9 h-9 rounded-lg bg-[#5c1617] text-[#f3d382] hover:bg-[#f3d382] hover:text-[#3a0a0b] flex items-center justify-center font-bold transition-colors"
+                className="w-9 h-9 rounded-lg bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
@@ -114,7 +114,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
               <button
                 onClick={() => onUpdateQuantity(quantity + 1)}
-                className="w-9 h-9 rounded-lg bg-[#f3d382] text-[#3a0a0b] hover:bg-[#fff0ca] flex items-center justify-center font-bold shadow transition-colors"
+                className="w-9 h-9 rounded-lg bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold shadow transition-colors"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -122,7 +122,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
             <button
               onClick={onClose}
-              className="flex-1 bg-gold-gradient text-[#3a0a0b] font-bold text-sm py-3 px-6 rounded-xl hover:opacity-95 transition-opacity"
+              className="flex-1 bg-gold-gradient text-[#0B0B0C] font-bold text-sm py-3 px-6 rounded-xl hover:opacity-95 transition-opacity"
             >
               {lang === 'ar' ? 'تم' : lang === 'fr' ? 'Valider' : 'Done'}
             </button>

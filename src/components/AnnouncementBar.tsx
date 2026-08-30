@@ -15,7 +15,7 @@ export const AnnouncementBar: React.FC<AnnouncementBarProps> = ({ lang }) => {
 
   return (
     <div
-      className="bg-gradient-to-r from-[#d4af37] via-[#c9a35c] to-[#b38b38] text-[#0a0a0a] text-xs pb-1 px-3 font-bold text-center border-b border-[#8a651a]/30 select-none"
+      className="bg-gradient-to-r from-[#8C7040] via-[#C9A15A] to-[#B08D48] text-[#0B0B0C] text-xs pb-1 px-3 font-bold text-center border-b border-[#8C7040]/30 select-none"
       style={{ paddingTop: 'max(0.25rem, env(safe-area-inset-top))' }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-1.5 whitespace-nowrap overflow-hidden">

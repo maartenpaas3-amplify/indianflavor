@@ -197,7 +197,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
     >
       <div
         dir={lang === 'ar' ? 'rtl' : 'ltr'}
-        className="relative w-full max-w-md border border-[#f3d382]/40 rounded-2xl p-6 shadow-2xl text-white my-8 overflow-hidden bg-cover bg-center"
+        className="relative w-full max-w-md border border-[#C9A15A]/40 rounded-2xl p-6 shadow-2xl text-white my-8 overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage: `url("https://i.ibb.co/k2rpHy96/ifbollywood.webp")`,
         }}
@@ -214,28 +214,28 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
         {/* Content wrapper sitting above overlay */}
         <div className="relative z-10">
           {/* Glow ambient background */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#f3d382]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#C9A15A]/15 rounded-full blur-3xl pointer-events-none" />
 
           {/* Close Button */}
           <button
             type="button"
             onClick={onClose}
-            className={`absolute top-0 ${lang === 'ar' ? 'left-0' : 'right-0'} w-8 h-8 rounded-full bg-[#3a0a0b] border border-[#f3d382]/40 text-zinc-200 hover:text-white hover:border-[#f3d382] flex items-center justify-center transition-all cursor-pointer z-20 shadow-lg`}
+            className={`absolute top-0 ${lang === 'ar' ? 'left-0' : 'right-0'} w-8 h-8 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/40 text-zinc-200 hover:text-white hover:border-[#C9A15A] flex items-center justify-center transition-all cursor-pointer z-20 shadow-lg`}
             aria-label={t.close}
           >
             <X className="w-4 h-4" />
           </button>
 
           {/* Header */}
-          <div className="flex items-center gap-3 mb-4 pr-10 rtl:pr-0 rtl:pl-10 bg-[#4a0f10]/90 border border-[#f3d382]/40 rounded-xl p-3 shadow-lg backdrop-blur-md">
-            <div className="w-10 h-10 rounded-full bg-[#3a0a0b] border border-[#f3d382]/60 flex items-center justify-center shrink-0 shadow-lg">
+          <div className="flex items-center gap-3 mb-4 pr-10 rtl:pr-0 rtl:pl-10 bg-[#131315]/90 border border-[#C9A15A]/40 rounded-xl p-3 shadow-lg backdrop-blur-md">
+            <div className="w-10 h-10 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/60 flex items-center justify-center shrink-0 shadow-lg">
               <span className="text-xl">🎬</span>
             </div>
             <div>
               <h3 className="font-serif-luxury text-xl font-bold text-white leading-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.95)]">
                 {t.title}
               </h3>
-              <p className="text-xs text-[#f3d382] font-medium flex items-center gap-1 mt-0.5 [text-shadow:0_1px_4px_rgba(0,0,0,0.95)]">
+              <p className="text-xs text-[#C9A15A] font-medium flex items-center gap-1 mt-0.5 [text-shadow:0_1px_4px_rgba(0,0,0,0.95)]">
                 <Sparkles className="w-3 h-3" />
                 <span>{t.subtitle}</span>
               </p>
@@ -243,23 +243,23 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
           </div>
 
         {/* Info Box */}
-        <div className="bg-[#4a0f10]/95 border border-[#f3d382]/35 rounded-xl p-3.5 mb-5 text-xs text-zinc-200 leading-relaxed shadow-md backdrop-blur-sm">
+        <div className="bg-[#131315]/95 border border-[#C9A15A]/35 rounded-xl p-3.5 mb-5 text-xs text-zinc-200 leading-relaxed shadow-md backdrop-blur-sm">
           <p>
             {t.infoTextPrefix}
-            <span className="text-[#f3d382] font-bold">{t.infoTextTarget}</span>
+            <span className="text-[#C9A15A] font-bold">{t.infoTextTarget}</span>
             {t.infoTextSuffix}
           </p>
 
           {/* Progress Bar (if totalRegistered >= 5) */}
           {showCounter && (
-            <div className="mt-3 pt-3 border-t border-[#f3d382]/20">
+            <div className="mt-3 pt-3 border-t border-[#C9A15A]/20">
               <div className="flex justify-between items-center mb-1.5 text-xs">
                 <span className="text-zinc-300">{t.currentRegistrations}</span>
-                <span className="font-bold text-[#f3d382]">{t.counterLabel}</span>
+                <span className="font-bold text-[#C9A15A]">{t.counterLabel}</span>
               </div>
-              <div className="w-full h-2 bg-[#3a0a0b] rounded-full overflow-hidden border border-[#f3d382]/30">
+              <div className="w-full h-2 bg-[#0B0B0C] rounded-full overflow-hidden border border-[#C9A15A]/30">
                 <div
-                  className="h-full bg-gradient-to-r from-[#f3d382] to-[#fff0ca] transition-all duration-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-[#C9A15A] to-[#E8D4A8] transition-all duration-500 rounded-full"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -269,8 +269,8 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
 
         {/* Form or Success State */}
         {isSuccess ? (
-          <div className="py-8 text-center space-y-3 bg-[#4a0f10]/95 border border-[#f3d382]/40 rounded-xl p-6 backdrop-blur-sm">
-            <CheckCircle2 className="w-12 h-12 text-[#f3d382] mx-auto animate-bounce" />
+          <div className="py-8 text-center space-y-3 bg-[#131315]/95 border border-[#C9A15A]/40 rounded-xl p-6 backdrop-blur-sm">
+            <CheckCircle2 className="w-12 h-12 text-[#C9A15A] mx-auto animate-bounce" />
             <h4 className="text-lg font-bold text-white">{t.successTitle}</h4>
             <p className="text-xs text-zinc-300 max-w-xs mx-auto">{t.successSubtitle}</p>
           </div>
@@ -285,7 +285,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
             {/* Nom complet */}
             <div>
               <label className="text-xs font-semibold text-zinc-200 mb-1 block [text-shadow:0_1px_4px_rgba(0,0,0,0.9)]">
-                {t.nameLabel} <span className="text-[#f3d382]">*</span>
+                {t.nameLabel} <span className="text-[#C9A15A]">*</span>
               </label>
               <div className="relative">
                 <User
@@ -298,7 +298,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t.namePlaceholder}
-                  className={`w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl ${
+                  className={`w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl ${
                     lang === 'ar' ? 'pr-9 pl-3' : 'pl-9 pr-3'
                   } py-2 text-sm text-white focus:outline-none shadow-sm placeholder:text-zinc-400`}
                   required
@@ -309,7 +309,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
             {/* Téléphone / WhatsApp */}
             <div>
               <label className="text-xs font-semibold text-zinc-200 mb-1 block [text-shadow:0_1px_4px_rgba(0,0,0,0.9)]">
-                {t.phoneLabel} <span className="text-[#f3d382]">*</span>
+                {t.phoneLabel} <span className="text-[#C9A15A]">*</span>
               </label>
               <div className="relative">
                 <Phone
@@ -322,7 +322,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder={t.phonePlaceholder}
-                  className={`w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl ${
+                  className={`w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl ${
                     lang === 'ar' ? 'pr-9 pl-3' : 'pl-9 pr-3'
                   } py-2 text-sm text-white focus:outline-none shadow-sm placeholder:text-zinc-400`}
                   required
@@ -333,7 +333,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
             {/* Nombre de personnes */}
             <div>
               <label className="text-xs font-semibold text-zinc-200 mb-1 block [text-shadow:0_1px_4px_rgba(0,0,0,0.9)]">
-                {t.guestCountLabel} <span className="text-[#f3d382]">*</span>
+                {t.guestCountLabel} <span className="text-[#C9A15A]">*</span>
               </label>
               <div className="relative">
                 <Users
@@ -347,7 +347,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
                   max="20"
                   value={guestCount}
                   onChange={(e) => setGuestCount(Math.max(1, parseInt(e.target.value) || 1))}
-                  className={`w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl ${
+                  className={`w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl ${
                     lang === 'ar' ? 'pr-9 pl-3' : 'pl-9 pr-3'
                   } py-2 text-sm text-white focus:outline-none shadow-sm`}
                   required
@@ -359,7 +359,7 @@ export const BollywoodModal: React.FC<BollywoodModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-[#f3d382] via-[#e5bd63] to-[#d4af37] text-[#3a0a0b] font-extrabold text-sm py-3 px-5 rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-98 disabled:opacity-50 cursor-pointer"
+              className="w-full mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-[#C9A15A] via-[#B08D48] to-[#8C7040] text-[#0B0B0C] font-extrabold text-sm py-3 px-5 rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-98 disabled:opacity-50 cursor-pointer"
             >
               {isSubmitting ? (
                 <>

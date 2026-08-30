@@ -321,15 +321,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       onClick={onClose}
     >
       <div
-        className={`relative w-full max-w-lg bg-[#4a0f10] border-l border-[#f3d382]/30 h-full flex flex-col justify-between shadow-2xl transition-transform duration-300 ${
+        className={`relative w-full max-w-lg bg-[#131315] border-l border-[#C9A15A]/30 h-full flex flex-col justify-between shadow-2xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header (Sticky at top) */}
-        <div className="p-5 border-b border-[#f3d382]/25 flex items-center justify-between bg-[#5c1617] shrink-0 sticky top-0 z-20">
+        <div className="p-5 border-b border-[#C9A15A]/25 flex items-center justify-between bg-[#131315] shrink-0 sticky top-0 z-20">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full bg-[#3a0a0b] border border-[#f3d382]/60 flex items-center justify-center shrink-0 overflow-hidden">
+            <div className="w-9 h-9 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/60 flex items-center justify-center shrink-0 overflow-hidden">
               <img
                 src="https://i.ibb.co/ZzqpzTdj/indianflavorslogotransparent-1.png"
                 alt="Indian Flavors Logo"
@@ -341,7 +341,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <h2 className="font-serif-luxury text-xl font-bold text-white leading-none">
                 {lang === 'ar' ? 'سلة الطلبات' : lang === 'fr' ? 'Votre Commande' : 'Your Order'}
               </h2>
-              <span className="text-xs text-[#f3d382]/90 font-medium">
+              <span className="text-xs text-[#C9A15A]/90 font-medium">
                 {cart.reduce((acc, curr) => acc + curr.quantity, 0)}{' '}
                 {lang === 'ar' ? 'أطباق مختارة' : lang === 'fr' ? 'articles sélectionnés' : 'items selected'}
               </span>
@@ -351,7 +351,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-[#3a0a0b] border border-[#f3d382]/30 text-zinc-200 hover:text-white hover:border-[#f3d382] hover:bg-[#6b1d1e] flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer shrink-0"
+            className="w-9 h-9 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/30 text-zinc-200 hover:text-white hover:border-[#C9A15A] hover:bg-[#1A1A1E] flex items-center justify-center transition-all shadow-md active:scale-95 cursor-pointer shrink-0"
             aria-label="Close cart"
           >
             <X className="w-5 h-5" />
@@ -362,7 +362,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         <div className="flex-1 overflow-y-auto p-5 space-y-6">
           {cart.length === 0 ? (
             <div className="text-center py-16 text-zinc-300 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#3a0a0b] border border-[#f3d382]/30 flex items-center justify-center mx-auto text-[#f3d382]">
+              <div className="w-16 h-16 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/30 flex items-center justify-center mx-auto text-[#C9A15A]">
                 <ShoppingBag className="w-8 h-8 opacity-75" />
               </div>
               <p className="text-base font-medium text-white">
@@ -374,7 +374,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </p>
               <button
                 onClick={onClose}
-                className="px-5 py-2 rounded-full bg-[#5c1617] border border-[#f3d382]/50 text-gold-gradient text-xs font-bold hover:border-[#f3d382] transition-colors"
+                className="px-5 py-2 rounded-full bg-[#131315] border border-[#C9A15A]/50 text-gold-gradient text-xs font-bold hover:border-[#C9A15A] transition-colors"
               >
                 {lang === 'ar' ? 'تصفح القائمة' : lang === 'fr' ? 'Parcourir le menu' : 'Browse Menu'}
               </button>
@@ -383,8 +383,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <>
               {/* Selected Items List */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-[#f3d382]/20">
-                  <span className="text-xs uppercase tracking-widest text-[#f3d382] font-semibold">
+                <div className="flex items-center justify-between pb-2 border-b border-[#C9A15A]/20">
+                  <span className="text-xs uppercase tracking-widest text-[#C9A15A] font-semibold">
                     {lang === 'ar' ? 'ملخص الأطباق' : lang === 'fr' ? 'Résumé des Plats' : 'Dishes Summary'}
                   </span>
                   <button
@@ -416,7 +416,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   return (
                     <div
                       key={item.cartItemId}
-                      className="bg-[#5c1617] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#f3d382]/40 transition-colors"
+                      className="bg-[#131315] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-2.5 sm:gap-3 hover:border-[#C9A15A]/40 transition-colors"
                     >
                       <img
                         src={item.menuItem.image}
@@ -429,23 +429,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           {itemName}
                         </h4>
                         {item.selectedRice && (
-                          <div className="text-[11px] text-[#f3d382] font-semibold mt-0.5 flex items-center gap-1">
+                          <div className="text-[11px] text-[#C9A15A] font-semibold mt-0.5 flex items-center gap-1">
                             <span>🍚</span>
                             <span>{riceName} (+{item.selectedRice.price} DH)</span>
                           </div>
                         )}
-                        <span className="text-xs text-[#f3d382]/80 font-medium block mt-0.5">
+                        <span className="text-xs text-[#C9A15A]/80 font-medium block mt-0.5">
                           {unitPrice} DH
                         </span>
                       </div>
 
                       {/* Quantity Controller */}
-                      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#3a0a0b] border border-[#f3d382]/30 rounded-lg p-1 shrink-0">
+                      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#0B0B0C] border border-[#C9A15A]/30 rounded-lg p-1 shrink-0">
                         <button
                           onClick={() =>
                             onUpdateQuantity(item.cartItemId, item.quantity - 1)
                           }
-                          className="w-6 h-6 rounded bg-[#4a0f10] text-[#f3d382] hover:bg-[#f3d382] hover:text-[#3a0a0b] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
+                          className="w-6 h-6 rounded bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
@@ -456,7 +456,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           onClick={() =>
                             onUpdateQuantity(item.cartItemId, item.quantity + 1)
                           }
-                          className="w-6 h-6 rounded bg-[#f3d382] text-[#3a0a0b] hover:bg-[#fff0ca] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
+                          className="w-6 h-6 rounded bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
                         >
                           <Plus className="w-3 h-3" />
                         </button>
@@ -487,16 +487,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 );
 
                 return (
-                  <div className="bg-[#5c1617] border border-[#f3d382]/30 rounded-xl p-3 space-y-2.5">
+                  <div className="bg-[#131315] border border-[#C9A15A]/30 rounded-xl p-3 space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-[#f3d382]">
+                      <span className="text-xs font-bold text-[#C9A15A]">
                         {lang === 'ar'
                           ? 'إضافة مشروب؟'
                           : lang === 'fr'
                           ? 'Ajoutez une boisson ?'
                           : 'Add a drink?'}
                       </span>
-                      <span className="text-[10px] text-[#f3d382]/80 uppercase tracking-wider font-semibold">
+                      <span className="text-[10px] text-[#C9A15A]/80 uppercase tracking-wider font-semibold">
                         {lang === 'ar' ? 'اقتراح' : lang === 'fr' ? 'Suggestion' : 'Suggestion'}
                       </span>
                     </div>
@@ -512,7 +512,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         return (
                           <div
                             key={drink.id}
-                            className="bg-[#3a0a0b] border border-[#f3d382]/20 rounded-lg p-2 flex flex-col justify-between items-center text-center gap-1.5 hover:border-[#f3d382]/50 transition-colors"
+                            className="bg-[#0B0B0C] border border-[#C9A15A]/20 rounded-lg p-2 flex flex-col justify-between items-center text-center gap-1.5 hover:border-[#C9A15A]/50 transition-colors"
                           >
                             <img
                               src={drink.image}
@@ -523,7 +523,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                               <p className="text-[11px] font-semibold text-white truncate leading-tight">
                                 {drinkName}
                               </p>
-                              <p className="text-[10px] text-[#f3d382] font-bold mt-0.5">
+                              <p className="text-[10px] text-[#C9A15A] font-bold mt-0.5">
                                 {drink.price} DH
                               </p>
                             </div>
@@ -534,7 +534,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                                   cart.find((c) => c.menuItem.id === drink.id)?.quantity || 0;
                                 onUpdateQuantity(drink.id, currentQty + 1);
                               }}
-                              className="w-full py-1 rounded bg-[#5c1617] border border-[#f3d382]/40 text-[#f3d382] hover:bg-[#f3d382] hover:text-[#3a0a0b] flex items-center justify-center gap-1 text-[11px] font-bold transition-all active:scale-95 cursor-pointer"
+                              className="w-full py-1 rounded bg-[#131315] border border-[#C9A15A]/40 text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center gap-1 text-[11px] font-bold transition-all active:scale-95 cursor-pointer"
                             >
                               <Plus className="w-3 h-3" />
                               <span>
@@ -551,7 +551,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
               {/* Order Options & Customer Details */}
               <form onSubmit={handleSendWhatsAppOrder} className="space-y-4 pt-2">
-                <span className="text-xs uppercase tracking-widest text-[#f3d382] font-semibold block border-b border-[#f3d382]/20 pb-2">
+                <span className="text-xs uppercase tracking-widest text-[#C9A15A] font-semibold block border-b border-[#C9A15A]/20 pb-2">
                   {lang === 'ar' ? 'معلومات الزبون' : lang === 'fr' ? 'Vos Coordonnées' : 'Customer Details'}
                 </span>
 
@@ -568,8 +568,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       }
                       className={`flex flex-col items-center justify-center p-2.5 rounded-xl border text-xs font-bold transition-all ${
                         orderDetails.orderType === 'delivery'
-                          ? 'bg-[#6b1d1e] border-[#f3d382] text-[#f3d382]'
-                          : 'bg-[#3a0a0b] border-white/10 text-zinc-300 hover:border-[#f3d382]/40'
+                          ? 'bg-[#1A1A1E] border-[#C9A15A] text-[#C9A15A]'
+                          : 'bg-[#0B0B0C] border-white/10 text-zinc-300 hover:border-[#C9A15A]/40'
                       }`}
                     >
                       <Truck className="w-4 h-4 mb-1" />
@@ -583,8 +583,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       }
                       className={`flex flex-col items-center justify-center p-2.5 rounded-xl border text-xs font-bold transition-all ${
                         orderDetails.orderType === 'takeaway'
-                          ? 'bg-[#6b1d1e] border-[#f3d382] text-[#f3d382]'
-                          : 'bg-[#3a0a0b] border-white/10 text-zinc-300 hover:border-[#f3d382]/40'
+                          ? 'bg-[#1A1A1E] border-[#C9A15A] text-[#C9A15A]'
+                          : 'bg-[#0B0B0C] border-white/10 text-zinc-300 hover:border-[#C9A15A]/40'
                       }`}
                     >
                       <BagIcon className="w-4 h-4 mb-1" />
@@ -598,8 +598,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       }
                       className={`flex flex-col items-center justify-center p-2.5 rounded-xl border text-xs font-bold transition-all ${
                         orderDetails.orderType === 'dinein'
-                          ? 'bg-[#6b1d1e] border-[#f3d382] text-[#f3d382]'
-                          : 'bg-[#3a0a0b] border-white/10 text-zinc-300 hover:border-[#f3d382]/40'
+                          ? 'bg-[#1A1A1E] border-[#C9A15A] text-[#C9A15A]'
+                          : 'bg-[#0B0B0C] border-white/10 text-zinc-300 hover:border-[#C9A15A]/40'
                       }`}
                     >
                       <UtensilsCrossed className="w-4 h-4 mb-1" />
@@ -622,7 +622,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         setOrderDetails({ ...orderDetails, customerName: e.target.value })
                       }
                       placeholder={lang === 'ar' ? 'مثال: محمد العلمي' : lang === 'fr' ? 'Ex: Mohamed Alami' : 'e.g. John Smith'}
-                      className="w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
+                      className="w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
                       required
                     />
                   </div>
@@ -642,7 +642,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         setOrderDetails({ ...orderDetails, customerPhone: e.target.value })
                       }
                       placeholder="Ex: +212 6 00 00 00 00"
-                      className="w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
+                      className="w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
                     />
                   </div>
                 </div>
@@ -675,24 +675,24 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             ? 'Ex: Appt 5, Immeuble B, Agdal'
                             : 'e.g. Apt 5, Agdal, Rabat'
                         }
-                        className="w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl pl-9 pr-8 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
+                        className="w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl pl-9 pr-8 py-2 text-base text-white focus:outline-none placeholder:text-zinc-400"
                         required
                       />
                       {isLoadingSuggestions && (
-                        <Loader2 className="w-4 h-4 text-[#f3d382] animate-spin absolute right-3 top-3 z-10 pointer-events-none" />
+                        <Loader2 className="w-4 h-4 text-[#C9A15A] animate-spin absolute right-3 top-3 z-10 pointer-events-none" />
                       )}
 
                       {/* Autocomplete Dropdown */}
                       {showSuggestions && suggestions.length > 0 && (
-                        <div className="absolute left-0 right-0 top-full mt-1 bg-[#4a0f10] border border-[#f3d382]/40 rounded-xl shadow-2xl z-50 overflow-hidden divide-y divide-white/10 max-h-56 overflow-y-auto">
+                        <div className="absolute left-0 right-0 top-full mt-1 bg-[#131315] border border-[#C9A15A]/40 rounded-xl shadow-2xl z-50 overflow-hidden divide-y divide-white/10 max-h-56 overflow-y-auto">
                           {suggestions.map((item, idx) => (
                             <button
                               key={idx}
                               type="button"
                               onClick={() => handleSelectSuggestion(item)}
-                              className="w-full text-left px-3 py-2.5 text-xs text-zinc-200 hover:bg-[#6b1d1e] hover:text-[#f3d382] transition-colors flex items-start gap-2"
+                              className="w-full text-left px-3 py-2.5 text-xs text-zinc-200 hover:bg-[#1A1A1E] hover:text-[#C9A15A] transition-colors flex items-start gap-2"
                             >
-                              <MapPin className="w-3.5 h-3.5 text-[#f3d382] shrink-0 mt-0.5" />
+                              <MapPin className="w-3.5 h-3.5 text-[#C9A15A] shrink-0 mt-0.5" />
                               <span className="line-clamp-2">{item.display_name}</span>
                             </button>
                           ))}
@@ -742,7 +742,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           : 'e.g. Mild spice, no onions...'
                       }
                       rows={2}
-                      className="w-full bg-[#3a0a0b] border border-white/20 focus:border-[#f3d382] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none resize-none placeholder:text-zinc-400"
+                      className="w-full bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-xl pl-9 pr-3 py-2 text-base text-white focus:outline-none resize-none placeholder:text-zinc-400"
                     />
                   </div>
                 </div>
@@ -769,7 +769,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Footer info in drawer */}
         {cart.length > 0 && (
           <div
-            className="p-4 bg-[#3a0a0b] border-t border-[#f3d382]/20 text-center"
+            className="p-4 bg-[#0B0B0C] border-t border-[#C9A15A]/20 text-center"
             style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}
           >
             <p className="text-[11px] text-zinc-300">

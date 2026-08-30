@@ -57,7 +57,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
   }, [checkScroll, categories, lang]);
 
   return (
-    <div className="sticky top-14 sm:top-16 z-20 bg-[#6b1d1e]/95 backdrop-blur-md border-y border-[#f3d382]/30 py-2.5 transition-all shadow-lg mt-2 sm:mt-3 mb-6 sm:mb-8 relative">
+    <div className="sticky top-14 sm:top-16 z-20 bg-[#1A1A1E]/95 backdrop-blur-md border-y border-[#C9A15A]/30 py-2.5 transition-all shadow-lg mt-2 sm:mt-3 mb-6 sm:mb-8 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div
           ref={scrollRef}
@@ -68,8 +68,8 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
             onClick={() => onSelectCategory('all')}
             className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-md ${
               selectedCategory === 'all'
-                ? 'bg-gold-gradient text-[#3a0a0b] scale-105 shadow-gold-glow'
-                : 'bg-[#4a0f10] text-zinc-200 border border-[#f3d382]/25 hover:border-[#f3d382] hover:text-white'
+                ? 'bg-gold-gradient text-[#0B0B0C] scale-105 shadow-gold-glow'
+                : 'bg-[#131315] text-zinc-200 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
             }`}
           >
             <span>✨</span>
@@ -98,8 +98,8 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
                 onClick={() => onSelectCategory(cat.id)}
                 className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-md whitespace-nowrap ${
                   isSelected
-                    ? 'bg-gold-gradient text-[#3a0a0b] scale-105 shadow-gold-glow'
-                    : 'bg-[#4a0f10] text-zinc-200 border border-[#f3d382]/25 hover:border-[#f3d382] hover:text-white'
+                    ? 'bg-gold-gradient text-[#0B0B0C] scale-105 shadow-gold-glow'
+                    : 'bg-[#131315] text-zinc-200 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
                 }`}
               >
                 <span className="text-sm sm:text-base">{cat.emoji}</span>
@@ -112,7 +112,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
 
       {/* Fade gradient overlay on right edge */}
       <div
-        className={`absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-[#8F2D2E] via-[#8F2D2E]/90 to-transparent pointer-events-none transition-opacity duration-300 z-30 ${
+        className={`absolute right-0 top-0 bottom-0 w-12 sm:w-16 bg-gradient-to-l from-[#0B0B0C] via-[#0B0B0C]/90 to-transparent pointer-events-none transition-opacity duration-300 z-30 ${
           canScrollRight ? 'opacity-100' : 'opacity-0'
         }`}
         aria-hidden="true"

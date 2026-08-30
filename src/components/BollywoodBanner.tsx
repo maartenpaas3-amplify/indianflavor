@@ -47,11 +47,11 @@ export const BollywoodBanner: React.FC<BollywoodBannerProps> = ({
     <div
       onClick={onClick}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-      className="bg-gradient-to-r from-[#4a0f10] via-[#5c1617] to-[#4a0f10] border-b border-[#f3d382]/25 text-xs py-1.5 hover:bg-[#6b1d1e] transition-colors cursor-pointer select-none group relative overflow-hidden"
+      className="bg-gradient-to-r from-[#131315] via-[#131315] to-[#131315] border-b border-[#C9A15A]/25 text-xs py-1.5 hover:bg-[#1A1A1E] transition-colors cursor-pointer select-none group relative overflow-hidden"
       style={{ paddingTop: 'max(0.35rem, env(safe-area-inset-top))' }}
     >
       {/* Subtle shine effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f3d382]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C9A15A]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-5 flex-wrap">
         {/* Icon & 2 Text Lines */}
@@ -63,7 +63,7 @@ export const BollywoodBanner: React.FC<BollywoodBannerProps> = ({
             <span className="font-bold text-xs sm:text-sm text-white font-serif-luxury tracking-wide">
               {text.title}
             </span>
-            <span className="text-[11px] sm:text-xs text-[#c9a35c]/90 font-medium">
+            <span className="text-[11px] sm:text-xs text-[#C9A15A]/90 font-medium">
               {text.subtitle}
             </span>
           </div>
@@ -71,11 +71,11 @@ export const BollywoodBanner: React.FC<BollywoodBannerProps> = ({
 
         {/* Counter if threshold reached */}
         {showCounter && (
-          <div className="inline-flex items-center gap-2 bg-black/60 border border-[#c9a35c]/40 rounded-full px-2.5 py-0.5 text-[11px] font-bold text-[#c9a35c]">
+          <div className="inline-flex items-center gap-2 bg-black/60 border border-[#C9A15A]/40 rounded-full px-2.5 py-0.5 text-[11px] font-bold text-[#C9A15A]">
             <span>{text.counter}</span>
-            <div className="w-10 h-1.5 bg-black rounded-full overflow-hidden border border-[#c9a35c]/30 inline-block">
+            <div className="w-10 h-1.5 bg-black rounded-full overflow-hidden border border-[#C9A15A]/30 inline-block">
               <div
-                className="h-full bg-gradient-to-r from-[#c9a35c] to-[#f3e5ab] rounded-full"
+                className="h-full bg-gradient-to-r from-[#C9A15A] to-[#E8D4A8] rounded-full"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
@@ -83,7 +83,7 @@ export const BollywoodBanner: React.FC<BollywoodBannerProps> = ({
         )}
 
         {/* Solid Gold Pill Button */}
-        <button className="bg-gold-gradient hover:opacity-90 text-[#0a0a0a] font-bold text-xs px-3.5 py-1 rounded-full shadow transition-all shrink-0 cursor-pointer">
+        <button className="bg-gold-gradient hover:opacity-90 text-[#0B0B0C] font-bold text-xs px-3.5 py-1 rounded-full shadow transition-all shrink-0 cursor-pointer">
           {text.register}
         </button>
       </div>
