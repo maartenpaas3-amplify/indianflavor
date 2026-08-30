@@ -185,7 +185,7 @@ export default function App() {
   return (
     <div
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-      className="min-h-screen bg-[#8F2D2E] text-white flex flex-col font-sans selection:bg-[#f3d382] selection:text-[#3a0a0b]"
+      className="min-h-screen bg-[#0B0B0C] text-white flex flex-col font-sans selection:bg-[#C9A15A] selection:text-[#0B0B0C]"
     >
       {/* 1. Top Announcement Bar & Bollywood Night Ribbon */}
       <AnnouncementBar lang={lang} />
@@ -211,7 +211,7 @@ export default function App() {
       <main id="menu" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-4 space-y-2">
-          <span className="text-xs uppercase tracking-[0.25em] font-serif font-extrabold text-[#c9a35c] block">
+          <span className="text-xs uppercase tracking-[0.25em] font-serif font-extrabold text-[#C9A15A] block">
             {lang === 'ar' ? 'القائمة' : lang === 'fr' ? 'LE MENU' : 'THE MENU'}
           </span>
           <h2 className="font-serif-luxury text-2xl sm:text-4xl font-bold text-white tracking-tight">
@@ -238,7 +238,7 @@ export default function App() {
               </>
             )}
           </p>
-          <p className="text-xs text-[#c9a35c]/75 font-normal tracking-wide pt-0.5">
+          <p className="text-xs text-[#C9A15A]/75 font-normal tracking-wide pt-0.5">
             {lang === 'ar'
               ? 'أسعار المطعم المباشرة، بدون رسوم إضافية.'
               : lang === 'fr'
@@ -256,7 +256,7 @@ export default function App() {
         />
 
         {/* Search & Dietary Filters Toolbar */}
-        <div className="bg-[#6b1d1e] border border-[#f3d382]/30 rounded-2xl p-4 mb-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-[#1A1A1E] border border-[#C9A15A]/30 rounded-2xl p-4 mb-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Search Field */}
           <div className="relative w-full md:w-96">
             <Search className={`w-4 h-4 text-zinc-300 absolute ${lang === 'ar' ? 'right-3.5' : 'left-3.5'} top-3`} />
@@ -271,7 +271,7 @@ export default function App() {
                   ? 'Rechercher (ex: Biryani, Naan)...'
                   : 'Search dish (e.g. Biryani, Naan)...'
               }
-              className={`w-full bg-[#4a0f10] border border-white/20 focus:border-[#f3d382] rounded-xl ${lang === 'ar' ? 'pr-10 pl-9' : 'pl-10 pr-9'} py-2 text-base text-white focus:outline-none transition-colors placeholder:text-zinc-300/70`}
+              className={`w-full bg-[#131315] border border-white/20 focus:border-[#C9A15A] rounded-xl ${lang === 'ar' ? 'pr-10 pl-9' : 'pl-10 pr-9'} py-2 text-base text-white focus:outline-none transition-colors placeholder:text-zinc-300/70`}
             />
             {searchQuery && (
               <button
@@ -290,7 +290,7 @@ export default function App() {
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all ${
                 filterVegan
                   ? 'bg-emerald-950 border-emerald-500 text-emerald-300 shadow'
-                  : 'bg-[#4a0f10] border-white/20 text-zinc-300 hover:text-white'
+                  : 'bg-[#131315] border-white/20 text-zinc-300 hover:text-white'
               }`}
             >
               <Leaf className="w-3.5 h-3.5 text-emerald-400" />
@@ -302,7 +302,7 @@ export default function App() {
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all ${
                 filterSpicy
                   ? 'bg-red-950 border-red-500 text-red-300 shadow'
-                  : 'bg-[#4a0f10] border-white/20 text-zinc-300 hover:text-white'
+                  : 'bg-[#131315] border-white/20 text-zinc-300 hover:text-white'
               }`}
             >
               <Flame className="w-3.5 h-3.5 text-red-400" />
@@ -313,8 +313,8 @@ export default function App() {
 
         {/* Menu Items Grid or Empty State */}
         {filteredItems.length === 0 ? (
-          <div className="text-center py-20 bg-[#6b1d1e]/80 rounded-2xl border border-[#f3d382]/30 p-8 space-y-4">
-            <Utensils className="w-12 h-12 text-[#f3d382]/60 mx-auto" />
+          <div className="text-center py-20 bg-[#1A1A1E]/80 rounded-2xl border border-[#C9A15A]/30 p-8 space-y-4">
+            <Utensils className="w-12 h-12 text-[#C9A15A]/60 mx-auto" />
             <h3 className="text-xl font-serif text-white font-bold">
               {lang === 'ar' ? 'لم يتم العثور على أطباق' : lang === 'fr' ? 'Aucun plat trouvé' : 'No dishes found'}
             </h3>
@@ -332,7 +332,7 @@ export default function App() {
                 setFilterVegan(false);
                 setFilterSpicy(false);
               }}
-              className="px-5 py-2 rounded-full bg-[#450d0e] border border-[#f3d382]/50 text-[#f3d382] text-xs font-bold hover:bg-[#f3d382] hover:text-[#3a0a0b] transition-all"
+              className="px-5 py-2 rounded-full bg-[#0B0B0C] border border-[#C9A15A]/50 text-[#C9A15A] text-xs font-bold hover:bg-[#C9A15A] hover:text-[#0B0B0C] transition-all"
             >
               {lang === 'ar' ? 'عرض القائمة الكاملة' : lang === 'fr' ? 'Voir tout le menu' : 'Show full menu'}
             </button>
@@ -360,12 +360,12 @@ export default function App() {
               return (
                 <section key={category.id} id={category.id} className="space-y-6">
                   {/* Category Title Header */}
-                  <div className="flex items-center gap-3 pb-3 border-b border-[#f3d382]/30">
+                  <div className="flex items-center gap-3 pb-3 border-b border-[#C9A15A]/30">
                     <span className="text-2xl">{category.emoji}</span>
                     <h3 className="font-serif-luxury text-2xl font-bold text-white tracking-wide">
                       {categoryName}
                     </h3>
-                    <span className="text-xs font-bold text-zinc-200 bg-[#450d0e] px-2.5 py-1 rounded-full border border-[#f3d382]/30">
+                    <span className="text-xs font-bold text-zinc-200 bg-[#0B0B0C] px-2.5 py-1 rounded-full border border-[#C9A15A]/30">
                       {categoryDishes.length}
                     </span>
                   </div>
