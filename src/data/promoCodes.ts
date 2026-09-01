@@ -7,8 +7,19 @@ export interface PromoCode {
   label?: string;
 }
 
-// Voeg hier gewoon een nieuwe regel toe voor een nieuwe code, of verwijder een
-// regel om een code stop te zetten. Meer hoeft er niet aangepast te worden.
+// EEN NIEUWE CODE TOEVOEGEN, STAP VOOR STAP (in GitHub, geen andere hulp nodig):
+//   1. Open dit bestand op GitHub (src/data/promoCodes.ts) en klik op het
+//      potloodje rechtsboven ("Edit this file").
+//   2. Kopieer een bestaande regel tussen de [ ] hieronder en pas 'm aan:
+//        { code: 'PRINTEMPS10', percentage: 10, label: 'Actie lente 2027' },
+//      - code: wat de klant moet intikken (hoofdletters gebruiken wij hier
+//        als gewoonte, maar de klant mag het in elk geval intikken).
+//      - percentage: het kortingspercentage, bv. 15 = 15%.
+//      - label: puur voor onszelf, wordt nooit aan de klant getoond.
+//   3. Onderaan de pagina op GitHub: "Commit changes" (rechtstreeks naar de
+//      main-branch, zoals we al deden) — klaar, geen build of upload nodig,
+//      dat doet de hosting zelf.
+//   Een code stopzetten: verwijder gewoon die hele regel en commit opnieuw.
 //
 // BELANGRIJK om te weten (geen technische instelling, gewoon hoe het werkt):
 // een code wordt "gebruikt" onthouden op het TOESTEL/BROWSER van de klant
@@ -21,5 +32,5 @@ export interface PromoCode {
 // misbruikrisico sowieso al laag, want de klant weet dat de code aan hem
 // gekoppeld is.
 export const PROMO_CODES: PromoCode[] = [
-  { code: 'WELKOM20', percentage: 20, label: 'Welkomstkorting eerste bestelling' },
+  { code: 'BIENVENUE20', percentage: 20, label: 'Réduction de bienvenue - première commande' },
 ];
