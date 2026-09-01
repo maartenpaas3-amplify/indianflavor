@@ -1,4 +1,56 @@
 import { Category, MenuItem } from '../types';
+import imgAlooGobi from '../assets/images/menu/aloo-gobi.webp';
+import imgBasmatiRice from '../assets/images/menu/basmati-rice.webp';
+import imgBiryaniPlainRice from '../assets/images/menu/biryani-plain-rice.webp';
+import imgBotiKabab from '../assets/images/menu/boti-kabab.webp';
+import imgButterChicken from '../assets/images/menu/butter-chicken.webp';
+import imgButterNaan from '../assets/images/menu/butter-naan.webp';
+import imgCheeseNaan from '../assets/images/menu/cheese-naan.webp';
+import imgChicken65Boneless from '../assets/images/menu/chicken-65-boneless.webp';
+import imgChickenBiryani from '../assets/images/menu/chicken-biryani.webp';
+import imgChickenFriedRice from '../assets/images/menu/chicken-fried-rice.webp';
+import imgChickenHakkaNoodles from '../assets/images/menu/chicken-hakka-noodles.webp';
+import imgChickenLollipop from '../assets/images/menu/chicken-lollipop.webp';
+import imgChickenManchurianBoneless from '../assets/images/menu/chicken-manchurian-boneless.webp';
+import imgChickenTikka from '../assets/images/menu/chicken-tikka.webp';
+import imgChickenTikkaMasala from '../assets/images/menu/chicken-tikka-masala.webp';
+import imgChilliChickenBoneless from '../assets/images/menu/chilli-chicken-boneless.webp';
+import imgCuminRice from '../assets/images/menu/cumin-rice.webp';
+import imgEauGazeuse from '../assets/images/menu/eau-gazeuse.webp';
+import imgEauMinerale from '../assets/images/menu/eau-minerale.webp';
+import imgFishBiryani from '../assets/images/menu/fish-biryani.webp';
+import imgGarlicNaan from '../assets/images/menu/garlic-naan.webp';
+import imgGheeRice from '../assets/images/menu/ghee-rice.webp';
+import imgKadaiChicken from '../assets/images/menu/kadai-chicken.webp';
+import imgKadaiPaneer from '../assets/images/menu/kadai-paneer.webp';
+import imgKulfi from '../assets/images/menu/kulfi.webp';
+import imgLambBiryani from '../assets/images/menu/lamb-biryani.webp';
+import imgLambKadai from '../assets/images/menu/lamb-kadai.webp';
+import imgLambKeema from '../assets/images/menu/lamb-keema.webp';
+import imgMangoLassi from '../assets/images/menu/mango-lassi.webp';
+import imgMasalaChai from '../assets/images/menu/masala-chai.webp';
+import imgMixedVegetableCurry from '../assets/images/menu/mixed-vegetable-curry.webp';
+import imgMushroomKadai from '../assets/images/menu/mushroom-kadai.webp';
+import imgMushroomMasala from '../assets/images/menu/mushroom-masala.webp';
+import imgPalakPaneer from '../assets/images/menu/palak-paneer.webp';
+import imgPaneerMakhni from '../assets/images/menu/paneer-makhni.webp';
+import imgPapadoms from '../assets/images/menu/papadoms.webp';
+import imgPrawnBiryani from '../assets/images/menu/prawn-biryani.webp';
+import imgPrawnCurry from '../assets/images/menu/prawn-curry.webp';
+import imgPrawnMasala from '../assets/images/menu/prawn-masala.webp';
+import imgRaita from '../assets/images/menu/raita.webp';
+import imgRajmaDaal from '../assets/images/menu/rajma-daal.webp';
+import imgRoti from '../assets/images/menu/roti.webp';
+import imgSoda from '../assets/images/menu/soda.webp';
+import imgSweetSaltyLassi from '../assets/images/menu/sweet-salty-lassi.webp';
+import imgTadkaDaal from '../assets/images/menu/tadka-daal.webp';
+import imgTandooriChicken from '../assets/images/menu/tandoori-chicken.webp';
+import imgVegFriedRice from '../assets/images/menu/veg-fried-rice.webp';
+import imgVegHakkaNoodles from '../assets/images/menu/veg-hakka-noodles.webp';
+import imgVegetableBiryani from '../assets/images/menu/vegetable-biryani.webp';
+import imgVegetablePakoras from '../assets/images/menu/vegetable-pakoras.webp';
+import imgVegetablePaniPuri from '../assets/images/menu/vegetable-pani-puri.webp';
+import imgVegetableSamosa from '../assets/images/menu/vegetable-samosa.webp';
 
 export const CATEGORIES: Category[] = [
   { id: 'popular', nameFr: 'Populaire', nameEn: 'Popular', nameAr: 'المفضل', emoji: '🔥' },
@@ -101,7 +153,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Pâtisserie indienne croustillante farcie de légumes aromatiques épicés',
     descEn: 'Indian pastry stuffed with spiced vegetables',
     price: 40,
-    image: IMG.samosa,
+    image: imgVegetableSamosa,
     isVegan: true,
     isVeg: true,
   },
@@ -113,7 +165,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Boules croustillantes farcies d\'eau acidulée épicée et de chutneys',
     descEn: 'Crispy balls filled with spiced water and chutneys',
     price: 45,
-    image: IMG.panipuri,
+    image: imgVegetablePaniPuri,
     isVegan: true,
     isVeg: true,
   },
@@ -125,7 +177,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Beignets de légumes assortis en pâte de farine de pois chiches',
     descEn: 'Fritters of vegetables in chickpea batter',
     price: 60,
-    image: IMG.pakora,
+    image: imgVegetablePakoras,
     isVegan: true,
     isVeg: true,
   },
@@ -137,7 +189,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Yaourt doux rafraîchissant garni de concombre haché et épices',
     descEn: 'Yogurt with cucumber and mild spices',
     price: 30,
-    image: IMG.raita,
+    image: imgRaita,
     isVegan: true,
     isVeg: true,
   },
@@ -151,7 +203,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Bouchées de poulet frits épicés aux herbes indiennes',
     descEn: 'Spicy deep-fried boneless chicken bites',
     price: 80,
-    image: IMG.chicken65,
+    image: imgChicken65Boneless,
     isSpicy: true,
   },
   {
@@ -162,7 +214,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Manchons de poulet frits croustillants style indo-chinois',
     descEn: 'Chicken drumettes Indo-Chinese style',
     price: 75,
-    image: IMG.chickenLollipop,
+    image: imgChickenLollipop,
     isSpicy: true,
   },
   {
@@ -173,7 +225,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poulet désossé sauté à la sauce pimentée, poivrons et oignons',
     descEn: 'Boneless chicken with chili sauce',
     price: 80,
-    image: IMG.chilliChicken,
+    image: imgChilliChickenBoneless,
     isExtraSpicy: true,
   },
   {
@@ -184,7 +236,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poulet frit en sauce Manchurian parfumée aux oignons verts et gingembre',
     descEn: 'Fried chicken in Manchurian sauce',
     price: 80,
-    image: IMG.chickenManchurian,
+    image: imgChickenManchurianBoneless,
     isSpicy: true,
   },
 
@@ -197,7 +249,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Fromage Paneer mijoté dans une sauce tomate épicée au wok',
     descEn: 'Paneer in spicy tomato gravy',
     price: 80,
-    image: IMG.paneer,
+    image: imgKadaiPaneer,
     isVeg: true,
   },
   {
@@ -208,7 +260,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Fromage Paneer fondant dans une sauce crémeuse au beurre et tomate',
     descEn: 'Paneer in creamy butter sauce (Vegan option available)',
     price: 80,
-    image: IMG.paneer,
+    image: imgPaneerMakhni,
     isVeg: true,
     isPopular: true,
   },
@@ -220,7 +272,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Champignons frais rissolés dans un curry riche aux épices',
     descEn: 'Mushrooms in spiced curry',
     price: 80,
-    image: IMG.mushroom,
+    image: imgMushroomMasala,
     isVegan: true,
     isVeg: true,
   },
@@ -232,7 +284,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Champignons sautés aux poivrons, oignons et épices indiennes',
     descEn: 'Spiced mushrooms with bell peppers & onions',
     price: 80,
-    image: IMG.mushroomKadai,
+    image: imgMushroomKadai,
     isVegan: true,
     isVeg: true,
   },
@@ -244,7 +296,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Lentilles jaunes mijotées et tempérées au cumin et ail rissolé',
     descEn: 'Lentils with spiced tempering',
     price: 70,
-    image: IMG.daal,
+    image: imgTadkaDaal,
     isVegan: true,
     isVeg: true,
     isPopular: true,
@@ -257,7 +309,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Curry traditionnel de haricots rouges en sauce tomate aromatique',
     descEn: 'Red kidney bean curry',
     price: 75,
-    image: IMG.rajmaDaal,
+    image: imgRajmaDaal,
     isVegan: true,
     isVeg: true,
   },
@@ -269,7 +321,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Curry onctueux d\'épinards frais hachés et morceaux de Paneer',
     descEn: 'Spinach & cheese curry (Vegan option available)',
     price: 80,
-    image: IMG.palakPaneer,
+    image: imgPalakPaneer,
     isVeg: true,
     isPopular: true,
   },
@@ -281,7 +333,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Légumes de saison mijotés dans une sauce curry douce',
     descEn: 'Mixed vegetables in mildly spiced curry sauce',
     price: 70,
-    image: IMG.mixedVeg,
+    image: imgMixedVegetableCurry,
     isVegan: true,
     isVeg: true,
   },
@@ -293,7 +345,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Curry savoureux de pommes de terre et chou-fleur dorés aux épices',
     descEn: 'Potato & cauliflower curry',
     price: 70,
-    image: IMG.alooGobi,
+    image: imgAlooGobi,
     isVegan: true,
     isVeg: true,
   },
@@ -307,7 +359,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Incontournable poulet mijoté dans une sauce veloutée au beurre et tomate',
     descEn: 'Chicken in buttery tomato sauce',
     price: 80,
-    image: IMG.butterChicken,
+    image: imgButterChicken,
     isPopular: true,
   },
   {
@@ -318,7 +370,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poulet tandoori grillé servi dans une sauce masala crémeuse',
     descEn: 'Grilled chicken in rich creamy tomato curry',
     price: 80,
-    image: IMG.tikkaMasala,
+    image: imgChickenTikkaMasala,
     isSpicy: true,
     isPopular: true,
   },
@@ -330,7 +382,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poulet épicé cuisiné dans un wok traditionnel avec poivrons et coriandre',
     descEn: 'Spicy chicken in traditional wok',
     price: 80,
-    image: IMG.kadaiChicken,
+    image: imgKadaiChicken,
     isExtraSpicy: true,
   },
   {
@@ -341,7 +393,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Crevettes ou filet de poisson mijotés dans un curry aromatique',
     descEn: 'Prawns or fish in spicy curry',
     price: 120,
-    image: IMG.prawnCurry,
+    image: imgPrawnCurry,
     isSpicy: true,
   },
   {
@@ -352,7 +404,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Sauce masala riche, oignon, ail, tomate, gingembre et épices fraîches',
     descEn: 'Masala sauce, onion, garlic, tomato, ginger, spices',
     price: 120,
-    image: IMG.prawnMasala,
+    image: imgPrawnMasala,
   },
   {
     id: 'mc7',
@@ -362,7 +414,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Morceaux d\'agneau épicés préparés au wok avec sauce tomate aromatique',
     descEn: 'Spiced lamb in tomato gravy',
     price: 100,
-    image: IMG.lambKadai,
+    image: imgLambKadai,
     isExtraSpicy: true,
   },
   {
@@ -373,7 +425,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Haché d\'agneau savoureux cuisiné aux petits pois et épices indiennes',
     descEn: 'Spiced minced lamb with peas',
     price: 100,
-    image: IMG.lambKeema,
+    image: imgLambKeema,
     isSpicy: true,
   },
 
@@ -386,7 +438,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poulet mariné aux épices et yaourt, grillé au four tandoor traditionnel',
     descEn: 'Chicken marinated and grilled in tandoor',
     price: 100,
-    image: IMG.chickenTandoori,
+    image: imgTandooriChicken,
   },
   {
     id: 't2',
@@ -396,7 +448,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Brochettes de dés de poulet désossés marinés et cuits au tandoor',
     descEn: 'Grilled chicken chunks with spices',
     price: 95,
-    image: IMG.chickenTikka,
+    image: imgChickenTikka,
   },
   {
     id: 't3',
@@ -406,7 +458,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Morceaux d\'agneau tendres marinés aux épices royales et grillés',
     descEn: 'Grilled lamb cubes',
     price: 100,
-    image: IMG.botiKabab,
+    image: imgBotiKabab,
   },
 
   // BIRYANI
@@ -418,7 +470,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati parfumé mi-cuit avec de l\'agneau tendre et épices douces',
     descEn: 'Spiced lamb with aromatic rice',
     price: 110,
-    image: IMG.lambBiryani,
+    image: imgLambBiryani,
     isPopular: true,
   },
   {
@@ -429,7 +481,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Spécialité d\'Hyderabad : poulet et riz basmati cuits à l\'étouffée',
     descEn: 'Chicken with basmati rice and spices',
     price: 95,
-    image: IMG.chickenBiryani,
+    image: imgChickenBiryani,
     isPopular: true,
   },
   {
@@ -440,7 +492,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Crevettes dorées mijotées avec du riz basmati aromatisé',
     descEn: 'Prawn with basmati rice and spices',
     price: 120,
-    image: IMG.prawnBiryani,
+    image: imgPrawnBiryani,
   },
   {
     id: 'b4',
@@ -450,7 +502,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Poisson tendre cuisiné au riz basmati et épices Hyderabadi',
     descEn: 'Fish with basmati rice and spices',
     price: 120,
-    image: IMG.fishBiryani,
+    image: imgFishBiryani,
   },
   {
     id: 'b5',
@@ -460,7 +512,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati parfumé mijoté avec des légumes de saison',
     descEn: 'Spiced rice with mixed vegetables',
     price: 85,
-    image: IMG.vegBiryani,
+    image: imgVegetableBiryani,
     isVegan: true,
     isVeg: true,
   },
@@ -474,7 +526,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Galettes croustillantes de lentilles grillées',
     descEn: 'Lentil crisps',
     price: 15,
-    image: IMG.papadoms,
+    image: imgPapadoms,
     isVegan: true,
     isVeg: true,
   },
@@ -486,7 +538,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Pain indien chaud badigeonné de beurre fondant',
     descEn: 'Traditional Indian tandoori bread with butter',
     price: 25,
-    image: IMG.butterNaan,
+    image: imgButterNaan,
     isVeg: true,
   },
   {
@@ -497,7 +549,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Naan chaud parfumé à l\'ail frais haché et coriandre',
     descEn: 'Naan with garlic and coriander',
     price: 29,
-    image: IMG.garlicNaan,
+    image: imgGarlicNaan,
     isVeg: true,
   },
   {
@@ -508,7 +560,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Pain tandoori moelleux généreusement fourré au fromage',
     descEn: 'Tandoori bread stuffed with melted cheese',
     price: 35,
-    image: IMG.cheeseNaan,
+    image: imgCheeseNaan,
     isVeg: true,
   },
   {
@@ -519,7 +571,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Pain plat traditionnel de farine complète cuit au tandoor',
     descEn: 'Traditional whole-wheat Indian bread',
     price: 20,
-    image: IMG.roti,
+    image: imgRoti,
     isVegan: true,
     isVeg: true,
   },
@@ -531,7 +583,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati sauté au beurre clarifié (ghee) aromatisé',
     descEn: 'Fragrant basmati rice sauteed in ghee',
     price: 40,
-    image: IMG.gheeRice,
+    image: imgGheeRice,
     isVeg: true,
   },
   {
@@ -542,7 +594,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati blanc nature à grain long d\'Inde',
     descEn: 'Fragrant long-grain basmati rice',
     price: 30,
-    image: IMG.basmatiRice,
+    image: imgBasmatiRice,
     isVegan: true,
     isVeg: true,
   },
@@ -554,7 +606,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz sauté aux légumes croquants style wok indo-chinois',
     descEn: 'Stir-fried rice with crunchy vegetables',
     price: 50,
-    image: IMG.vegFriedRice,
+    image: imgVegFriedRice,
     isVegan: true,
     isVeg: true,
   },
@@ -566,7 +618,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati parfumé aux graines de cumin dorées',
     descEn: 'Basmati rice tempered with cumin seeds',
     price: 35,
-    image: IMG.cuminRice,
+    image: imgCuminRice,
     isVegan: true,
     isVeg: true,
   },
@@ -578,7 +630,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz sauté au poulet, légumes sautés et sauce soja',
     descEn: 'Stir-fried rice with chicken, vegetables, soy sauce',
     price: 80,
-    image: IMG.chickenFriedRice,
+    image: imgChickenFriedRice,
   },
   {
     id: 'nr11',
@@ -588,7 +640,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Nouilles Hakka sautées au poulet et légumes croquants',
     descEn: 'Stir-fried Hakka noodles with chicken & veg',
     price: 80,
-    image: IMG.chickenHakkaNoodles,
+    image: imgChickenHakkaNoodles,
   },
   {
     id: 'nr12',
@@ -598,7 +650,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Nouilles Hakka sautées aux légumes frais',
     descEn: 'Stir-fried Hakka noodles with vegetables',
     price: 60,
-    image: IMG.vegHakkaNoodles,
+    image: imgVegHakkaNoodles,
     isVegan: true,
     isVeg: true,
   },
@@ -610,7 +662,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Riz basmati cuit dans le bouillon aromatique des épices biryani',
     descEn: 'Fragrant spiced basmati rice',
     price: 50,
-    image: IMG.biryaniRice,
+    image: imgBiryaniPlainRice,
     isVegan: true,
     isVeg: true,
   },
@@ -624,7 +676,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Glace artisanale indienne traditionnelle aux fruits et épices',
     descEn: 'Homemade traditional Indian ice cream',
     price: 50,
-    image: IMG.kulfi,
+    image: imgKulfi,
     isVeg: true,
   },
   {
@@ -635,7 +687,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Glace artisanale indienne à la mangue',
     descEn: 'Traditional Indian mango ice cream',
     price: 50,
-    image: IMG.mangoKulfi,
+    image: imgKulfi,
     isVeg: true,
   },
 
@@ -648,7 +700,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Boisson indienne onctueuse au yaourt et pulpe de mangue fraîche',
     descEn: 'Sweet mango and yogurt blended drink',
     price: 40,
-    image: IMG.mangoLassi,
+    image: imgMangoLassi,
     isVeg: true,
   },
   {
@@ -659,7 +711,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Boisson traditionnelle au yaourt, version sucrée ou salée au choix',
     descEn: 'Traditional yogurt drink, sweet or salty',
     price: 35,
-    image: IMG.sweetSaltLassi,
+    image: imgSweetSaltyLassi,
     isVeg: true,
   },
   {
@@ -670,7 +722,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Coca-Cola, Coca Zero, Sprite ou Fanta',
     descEn: 'Selection of soft drinks',
     price: 20,
-    image: IMG.soda,
+    image: imgSoda,
     isVegan: true,
   },
   {
@@ -681,7 +733,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Eau plate rafraîchissante',
     descEn: 'Fresh still mineral water',
     price: 15,
-    image: IMG.mineralWater,
+    image: imgEauMinerale,
     isVegan: true,
   },
   {
@@ -692,7 +744,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Eau pétillante',
     descEn: 'Refreshing sparkling water',
     price: 15,
-    image: IMG.mineralWater,
+    image: imgEauGazeuse,
     isVegan: true,
   },
 
@@ -705,7 +757,7 @@ export const MENU_ITEMS: MenuItem[] = [
     descFr: 'Thé noir indien traditionnel mijoté aux épices fines et au lait',
     descEn: 'Spiced tea brewed with milk & spices',
     price: 35,
-    image: IMG.masalaChai,
+    image: imgMasalaChai,
   },
 ];
 
