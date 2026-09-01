@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CartItem, Language, OrderDetails, OrderType } from '../types';
 import { RESTAURANT_INFO, MENU_ITEMS } from '../data/menuData';
+import { PROMO_CODES, PromoCode } from '../data/promoCodes';
 import { syncOrderToScreen } from '../lib/orderSync';
 import {
   X,
@@ -19,7 +20,37 @@ import {
   AlertTriangle,
   Paperclip,
   Loader2,
+  Tag,
+  CheckCircle2,
 } from 'lucide-react';
+
+// Onthoudt welke promocodes al eens gebruikt zijn op DIT toestel/browser,
+// zodat dezelfde code niet twee keer door dezelfde klant gebruikt kan
+// worden. Zie de uitleg in src/data/promoCodes.ts voor de grenzen hiervan.
+const USED_PROMO_CODES_STORAGE_KEY = 'if_used_promo_codes';
+
+function getUsedPromoCodes(): string[] {
+  try {
+    const raw = localStorage.getItem(USED_PROMO_CODES_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function markPromoCodeAsUsed(code: string) {
+  try {
+    const used = getUsedPromoCodes();
+    const normalized = code.trim().toUpperCase();
+    if (!used.includes(normalized)) {
+      used.push(normalized);
+      localStorage.setItem(USED_PROMO_CODES_STORAGE_KEY, JSON.stringify(used));
+    }
+  } catch {
+    // Best-effort only — nooit de bestelling blokkeren als localStorage faalt.
+  }
+}
 
 const RESTAURANT_LAT = 33.9953923;
 const RESTAURANT_LON = -6.8492066;
@@ -75,6 +106,49 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [distanceWarning, setDistanceWarning] = useState<string | null>(null);
+
+  // Promo code state
+  const [promoInput, setPromoInput] = useState('');
+  const [appliedPromo, setAppliedPromo] = useState<PromoCode | null>(null);
+  const [promoError, setPromoError] = useState<string | null>(null);
+
+  const discountAmount = appliedPromo
+    ? Math.round((cartTotal * appliedPromo.percentage) / 100)
+    : 0;
+  const finalTotal = Math.max(0, cartTotal - discountAmount);
+
+  const handleApplyPromo = () => {
+    const normalized = promoInput.trim().toUpperCase();
+    setPromoError(null);
+    if (!normalized) return;
+
+    const found = PROMO_CODES.find((p) => p.code.toUpperCase() === normalized);
+    if (!found) {
+      setPromoError(
+        lang === 'ar' ? 'رمز غير صالح' : lang === 'fr' ? 'Code invalide' : 'Invalid code'
+      );
+      return;
+    }
+
+    if (getUsedPromoCodes().includes(normalized)) {
+      setPromoError(
+        lang === 'ar'
+          ? 'تم استخدام هذا الرمز مسبقاً على هذا الجهاز'
+          : lang === 'fr'
+          ? 'Ce code a déjà été utilisé sur cet appareil'
+          : 'This code has already been used on this device'
+      );
+      return;
+    }
+
+    setAppliedPromo(found);
+    setPromoInput('');
+  };
+
+  const handleRemovePromo = () => {
+    setAppliedPromo(null);
+    setPromoError(null);
+  };
 
   const addressContainerRef = useRef<HTMLDivElement>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -222,7 +296,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       });
 
       message += `\n----------------------------------\n`;
-      message += `💰 *المجموع:* *${cartTotal} DH*\n`;
+      message += `🧾 *المجموع الفرعي:* ${cartTotal} DH\n`;
+      if (appliedPromo) {
+        message += `🏷️ *كود الخصم (${appliedPromo.code}, -${appliedPromo.percentage}%):* -${discountAmount} DH\n`;
+      }
+      message += `💰 *المجموع:* *${finalTotal} DH*\n`;
 
       if (orderDetails.specialNotes) {
         message += `----------------------------------\n`;
@@ -257,7 +335,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       });
 
       message += `\n----------------------------------\n`;
-      message += `💰 *TOTAL A PAYER:* *${cartTotal} DH*\n`;
+      message += `🧾 *Sous-total:* ${cartTotal} DH\n`;
+      if (appliedPromo) {
+        message += `🏷️ *Code promo (${appliedPromo.code}, -${appliedPromo.percentage}%):* -${discountAmount} DH\n`;
+      }
+      message += `💰 *TOTAL A PAYER:* *${finalTotal} DH*\n`;
 
       if (orderDetails.specialNotes) {
         message += `----------------------------------\n`;
@@ -292,7 +374,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       });
 
       message += `\n----------------------------------\n`;
-      message += `💰 *TOTAL AMOUNT:* *${cartTotal} DH*\n`;
+      message += `🧾 *Subtotal:* ${cartTotal} DH\n`;
+      if (appliedPromo) {
+        message += `🏷️ *Promo code (${appliedPromo.code}, -${appliedPromo.percentage}%):* -${discountAmount} DH\n`;
+      }
+      message += `💰 *TOTAL AMOUNT:* *${finalTotal} DH*\n`;
 
       if (orderDetails.specialNotes) {
         message += `----------------------------------\n`;
@@ -308,7 +394,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
     // Also push the order to the in-restaurant staff screen. This never
     // blocks or interferes with the WhatsApp flow below (see orderSync.ts).
-    syncOrderToScreen(cart, orderDetails, cartTotal);
+    // The staff screen has no dedicated discount field, so the applied code
+    // is appended to the notes staff already sees.
+    const promoNoteLine = appliedPromo
+      ? `Code promo: ${appliedPromo.code} (-${appliedPromo.percentage}%, -${discountAmount} DH) — Sous-total ${cartTotal} DH`
+      : '';
+    const notesWithPromo = [orderDetails.specialNotes, promoNoteLine]
+      .filter(Boolean)
+      .join(' | ');
+    syncOrderToScreen(
+      cart,
+      { ...orderDetails, specialNotes: notesWithPromo },
+      finalTotal
+    );
+
+    if (appliedPromo) {
+      markPromoCodeAsUsed(appliedPromo.code);
+    }
 
     window.open(whatsappUrl, '_blank');
   };
@@ -470,6 +572,87 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     </div>
                   );
                 })}
+              </div>
+
+              {/* Promo Code */}
+              <div className="bg-[#131315] border border-[#C9A15A]/30 rounded-xl p-3 space-y-2.5">
+                {!appliedPromo ? (
+                  <>
+                    <label className="text-xs font-bold text-[#C9A15A] flex items-center gap-1.5">
+                      <Tag className="w-3.5 h-3.5" />
+                      {lang === 'ar' ? 'رمز خصم؟' : lang === 'fr' ? 'Code promo ?' : 'Promo code?'}
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        value={promoInput}
+                        onChange={(e) => {
+                          setPromoInput(e.target.value);
+                          if (promoError) setPromoError(null);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleApplyPromo();
+                          }
+                        }}
+                        placeholder={
+                          lang === 'ar' ? 'أدخل الرمز' : lang === 'fr' ? 'Entrez le code' : 'Enter code'
+                        }
+                        className="flex-1 min-w-0 bg-[#0B0B0C] border border-white/20 focus:border-[#C9A15A] rounded-lg px-3 py-2 text-sm text-white uppercase tracking-wide focus:outline-none placeholder:text-zinc-400 placeholder:normal-case"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleApplyPromo}
+                        className="shrink-0 bg-gold-gradient hover:bg-gold-gradient-hover text-[#0B0B0C] font-bold text-xs px-4 py-2 rounded-lg transition-all active:scale-95 cursor-pointer"
+                      >
+                        {lang === 'ar' ? 'تطبيق' : lang === 'fr' ? 'Appliquer' : 'Apply'}
+                      </button>
+                    </div>
+                    {promoError && (
+                      <p className="text-[11px] text-red-300 flex items-center gap-1">
+                        <AlertTriangle className="w-3 h-3 shrink-0" />
+                        {promoError}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 text-xs font-bold text-emerald-300">
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
+                      <span>
+                        {appliedPromo.code} — -{appliedPromo.percentage}%
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleRemovePromo}
+                      className="text-[11px] text-zinc-300 hover:text-red-300 transition-colors"
+                    >
+                      {lang === 'ar' ? 'إزالة' : lang === 'fr' ? 'Retirer' : 'Remove'}
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Order Totals Summary */}
+              <div className="space-y-1.5 pt-1">
+                <div className="flex items-center justify-between text-xs text-zinc-300">
+                  <span>{lang === 'ar' ? 'المجموع الفرعي' : lang === 'fr' ? 'Sous-total' : 'Subtotal'}</span>
+                  <span>{cartTotal} DH</span>
+                </div>
+                {appliedPromo && (
+                  <div className="flex items-center justify-between text-xs font-semibold text-emerald-300">
+                    <span>
+                      {lang === 'ar' ? 'الخصم' : lang === 'fr' ? 'Réduction' : 'Discount'} ({appliedPromo.code})
+                    </span>
+                    <span>-{discountAmount} DH</span>
+                  </div>
+                )}
+                <div className="flex items-center justify-between text-sm font-extrabold text-white pt-1 border-t border-[#C9A15A]/20">
+                  <span>{lang === 'ar' ? 'الإجمالي' : lang === 'fr' ? 'Total' : 'Total'}</span>
+                  <span className="text-gold-gradient">{finalTotal} DH</span>
+                </div>
               </div>
 
               {/* Drink Upsell Suggestion (shown only if no drink is in cart) */}
@@ -755,10 +938,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <Send className="w-5 h-5 fill-current" />
                   <span>
                     {lang === 'ar'
-                      ? `إرسال الطلب عبر واتساب (${cartTotal} DH)`
+                      ? `إرسال الطلب عبر واتساب (${finalTotal} DH)`
                       : lang === 'fr'
-                      ? `Envoyer la Commande sur WhatsApp (${cartTotal} DH)`
-                      : `Send Order via WhatsApp (${cartTotal} DH)`}
+                      ? `Envoyer la Commande sur WhatsApp (${finalTotal} DH)`
+                      : `Send Order via WhatsApp (${finalTotal} DH)`}
                   </span>
                 </button>
               </form>
