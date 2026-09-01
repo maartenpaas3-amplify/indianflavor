@@ -79,26 +79,26 @@ export const MenuCard: React.FC<MenuCardProps> = ({
               </span>
             )}
             {item.isVegan && (
-              <span className="flex items-center gap-1 bg-emerald-950/90 border border-emerald-400/60 text-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-md">
-                <Leaf className="w-3 h-3 text-emerald-300" />
+              <span className="badge-pill text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <Leaf className="w-3 h-3" />
                 Vegan
               </span>
             )}
             {item.isVeg && !item.isVegan && (
-              <span className="flex items-center gap-1 bg-green-950/90 border border-green-400/60 text-green-200 text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-md">
-                <Leaf className="w-3 h-3 text-green-300" />
+              <span className="badge-pill text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <Leaf className="w-3 h-3" />
                 Veg
               </span>
             )}
             {item.isSpicy && (
-              <span className="flex items-center gap-1 bg-red-950/90 border border-red-400/60 text-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-md">
-                <Flame className="w-3 h-3 text-red-400" />
+              <span className="badge-pill text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <Flame className="w-3 h-3" />
                 {lang === 'ar' ? 'حار' : lang === 'fr' ? 'Épicé' : 'Spicy'}
               </span>
             )}
             {item.isExtraSpicy && (
-              <span className="flex items-center gap-1 bg-red-900 border border-red-400 text-amber-200 text-[10px] font-extrabold px-2 py-0.5 rounded-full backdrop-blur-md animate-pulse">
-                <Flame className="w-3 h-3 text-amber-300 fill-amber-300" />
+              <span className="badge-pill text-[10px] font-extrabold px-2 py-0.5 rounded-full">
+                <Flame className="w-3 h-3 fill-current" />
                 {lang === 'ar' ? 'حار جداً' : lang === 'fr' ? 'Très Épicé' : 'Extra Spicy'}
               </span>
             )}

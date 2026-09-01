@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import "tailwindcss";
 
 @theme {
   --color-zinc-300: #9A9490;
@@ -93,28 +93,42 @@
   background: #C9A15A;
 }
 
-/* Dedicated Add to Order button styles with high specificity */
+/* Dedicated Add to Order button styles with high specificity
+   Gold-filled by default (matches the carte page's "Ajouter" pill), not just on hover */
 .add-to-order-btn,
 .menu-card .add-to-order-btn,
 button.add-to-order-btn {
-  background-color: #0B0B0C !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(201, 161, 90, 0.4) !important;
+  background: linear-gradient(135deg, #C9A15A 0%, #B08D48 50%, #8C7040 100%) !important;
+  background-color: #C9A15A !important;
+  color: #0B0B0C !important;
+  border: 1px solid rgba(201, 161, 90, 0.6) !important;
   transition: all 0.2s ease !important;
+}
+
+.add-to-order-btn *,
+.menu-card .add-to-order-btn * {
+  color: #0B0B0C !important;
+  fill: currentColor;
 }
 
 .add-to-order-btn:hover,
 .menu-card .add-to-order-btn:hover,
 button.add-to-order-btn:hover {
-  background: linear-gradient(135deg, #C9A15A 0%, #8C7040 50%, #8C7040 100%) !important;
-  background-color: #C9A15A !important;
-  color: #0B0B0C !important;
+  background: linear-gradient(135deg, #E8D4A8 0%, #C9A15A 50%, #8C7040 100%) !important;
+  background-color: #E8D4A8 !important;
   border-color: #C9A15A !important;
+  transform: translateY(-1px);
 }
 
-.add-to-order-btn:hover *,
-.menu-card .add-to-order-btn:hover * {
-  color: #0B0B0C !important;
-  fill: currentColor;
+/* Monochrome-gold dietary/spice badge treatment, matching the carte page's badge discipline
+   (icon carries the meaning, no traffic-light green/red fills) */
+.badge-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(11, 11, 12, 0.9);
+  border: 1px solid rgba(201, 161, 90, 0.55);
+  color: #E8D4A8;
+  backdrop-filter: blur(6px);
 }
 

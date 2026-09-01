@@ -34,17 +34,17 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4 animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative bg-[#131315] border border-[#C9A15A]/40 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
+        className="relative bg-[#131315] border border-[#C9A15A]/40 rounded-t-2xl sm:rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border-t-2 sm:border-t border-t-[#C9A15A] max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-black/60 text-white hover:bg-black flex items-center justify-center transition-colors"
+          className="absolute top-3 right-3 z-20 w-9 h-9 rounded-full bg-[#0B0B0C]/80 border border-[#C9A15A]/40 text-white hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -80,14 +80,14 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </span>
             )}
             {item.isVegan && (
-              <span className="flex items-center gap-1 bg-emerald-950 border border-emerald-400/60 text-emerald-200 text-xs font-bold px-2.5 py-0.5 rounded-full">
-                <Leaf className="w-3 h-3 text-emerald-300" />
+              <span className="badge-pill text-xs font-bold px-2.5 py-0.5 rounded-full">
+                <Leaf className="w-3 h-3" />
                 Vegan
               </span>
             )}
             {item.isSpicy && (
-              <span className="flex items-center gap-1 bg-red-950 border border-red-400/60 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full">
-                <Flame className="w-3 h-3 text-red-400" />
+              <span className="badge-pill text-xs font-bold px-2.5 py-0.5 rounded-full">
+                <Flame className="w-3 h-3" />
                 {lang === 'ar' ? 'حار' : lang === 'fr' ? 'Épicé' : 'Spicy'}
               </span>
             )}
@@ -100,10 +100,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           <p className="text-zinc-200 text-sm leading-relaxed">{desc}</p>
 
           <div className="pt-4 border-t border-[#C9A15A]/20 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3 bg-[#0B0B0C] border border-[#C9A15A]/40 p-1.5 rounded-xl">
+            <div className="flex items-center gap-3 bg-[#0B0B0C] border border-[#C9A15A]/40 p-1.5 rounded-full">
               <button
                 onClick={() => onUpdateQuantity(Math.max(0, quantity - 1))}
-                className="w-9 h-9 rounded-lg bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold transition-colors"
+                className="w-9 h-9 rounded-full bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
@@ -114,7 +114,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
               <button
                 onClick={() => onUpdateQuantity(quantity + 1)}
-                className="w-9 h-9 rounded-lg bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold shadow transition-colors"
+                className="w-9 h-9 rounded-full bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold shadow transition-colors"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -122,7 +122,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
             <button
               onClick={onClose}
-              className="flex-1 bg-gold-gradient text-[#0B0B0C] font-bold text-sm py-3 px-6 rounded-xl hover:opacity-95 transition-opacity"
+              className="flex-1 bg-gold-gradient text-[#0B0B0C] font-bold text-sm py-3 px-6 rounded-full hover:opacity-95 transition-opacity"
             >
               {lang === 'ar' ? 'تم' : lang === 'fr' ? 'Valider' : 'Done'}
             </button>

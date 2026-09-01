@@ -50,10 +50,19 @@ export const Hero: React.FC<HeroProps> = ({ lang = 'fr' }) => {
           INDIAN <span className="text-gold-gradient">FLAVORS</span>
         </h1>
 
-        {/* Decorative Gold Divider */}
-        <div className="flex items-center justify-center gap-2.5 my-2 sm:my-2.5 w-[130px] sm:w-[180px] pointer-events-none select-none" aria-hidden="true">
+        {/* Decorative Gold Divider — lotus/petal motif, matching the carte page's ornament */}
+        <div className="flex items-center justify-center gap-2.5 my-2 sm:my-2.5 w-[160px] sm:w-[210px] pointer-events-none select-none" aria-hidden="true">
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#C9A15A]/60 to-[#C9A15A]" />
-          <span className="text-[#C9A15A] text-[9px] sm:text-[11px] leading-none">◆</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#C9A15A]">
+            <path
+              d="M12 3c-1.5 3-4.5 4.5-4.5 8.5a4.5 4.5 0 009 0C16.5 7.5 13.5 6 12 3z"
+              stroke="currentColor"
+              strokeWidth="1.3"
+              strokeLinejoin="round"
+            />
+            <path d="M6 16c2 1.2 4 1.6 6 1.6s4-.4 6-1.6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+            <circle cx="12" cy="10.5" r="1.1" fill="currentColor" />
+          </svg>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#C9A15A]/60 to-[#C9A15A]" />
         </div>
 

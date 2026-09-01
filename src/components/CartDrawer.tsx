@@ -440,12 +440,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       </div>
 
                       {/* Quantity Controller */}
-                      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#0B0B0C] border border-[#C9A15A]/30 rounded-lg p-1 shrink-0">
+                      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#0B0B0C] border border-[#C9A15A]/30 rounded-full p-1 shrink-0">
                         <button
                           onClick={() =>
                             onUpdateQuantity(item.cartItemId, item.quantity - 1)
                           }
-                          className="w-6 h-6 rounded bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
+                          className="w-6 h-6 rounded-full bg-[#131315] text-[#C9A15A] hover:bg-[#C9A15A] hover:text-[#0B0B0C] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
@@ -456,7 +456,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           onClick={() =>
                             onUpdateQuantity(item.cartItemId, item.quantity + 1)
                           }
-                          className="w-6 h-6 rounded bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
+                          className="w-6 h-6 rounded-full bg-[#C9A15A] text-[#0B0B0C] hover:bg-[#E8D4A8] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer"
                         >
                           <Plus className="w-3 h-3" />
                         </button>
@@ -750,7 +750,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 {/* Submit button inside form */}
                 <button
                   type="submit"
-                  className="w-full mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-[#25d366] via-[#128c7e] to-[#075e54] text-white font-black text-base py-3.5 px-6 rounded-xl shadow-xl hover:opacity-95 transition-all duration-300 active:scale-95"
+                  className="w-full mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-[#25d366] via-[#128c7e] to-[#075e54] text-white font-black text-base py-3.5 px-6 rounded-full shadow-xl border border-[#C9A15A]/30 hover:opacity-95 transition-all duration-300 active:scale-95"
                 >
                   <Send className="w-5 h-5 fill-current" />
                   <span>

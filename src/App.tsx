@@ -289,11 +289,11 @@ export default function App() {
               onClick={() => setFilterVegan((prev) => !prev)}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all ${
                 filterVegan
-                  ? 'bg-emerald-950 border-emerald-500 text-emerald-300 shadow'
+                  ? 'bg-gold-gradient border-[#C9A15A] text-[#0B0B0C] shadow'
                   : 'bg-[#131315] border-white/20 text-zinc-300 hover:text-white'
               }`}
             >
-              <Leaf className="w-3.5 h-3.5 text-emerald-400" />
+              <Leaf className="w-3.5 h-3.5" />
               <span>{lang === 'ar' ? 'نباتي فقط' : lang === 'fr' ? 'Vegan Uniquement' : 'Vegan Only'}</span>
             </button>
 
@@ -301,11 +301,11 @@ export default function App() {
               onClick={() => setFilterSpicy((prev) => !prev)}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all ${
                 filterSpicy
-                  ? 'bg-red-950 border-red-500 text-red-300 shadow'
+                  ? 'bg-gold-gradient border-[#C9A15A] text-[#0B0B0C] shadow'
                   : 'bg-[#131315] border-white/20 text-zinc-300 hover:text-white'
               }`}
             >
-              <Flame className="w-3.5 h-3.5 text-red-400" />
+              <Flame className="w-3.5 h-3.5" />
               <span>{lang === 'ar' ? 'أطباق حارة' : lang === 'fr' ? 'Plats Épicés' : 'Spicy Dishes'}</span>
             </button>
           </div>
