@@ -8,6 +8,44 @@ interface CategoryNavProps {
   lang: Language;
 }
 
+// Zelfde dunne lijn-icoontjes als op de carte-pagina (1 per categorie,
+// puur decoratief/aria-hidden) i.p.v. emoji — ziet er overal consistent
+// uit, ongeacht toestel/besturingssysteem, en oogt rustiger naast de
+// serif-gouden stijl. "all" en "popular" bestaan niet als aparte categorie
+// op de carte-kaart, dus die twee zijn los toegevoegd in dezelfde lijnstijl.
+const CATEGORY_ICON_PATHS: Record<string, string> = {
+  all: 'M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3z M6 18h12',
+  popular: 'M12 2c-3 4-6 7-6 11a6 6 0 0012 0c0-2-1-4-2-5 0 2-1 3-2 2 1-3-1-6-2-8z',
+  veg_starters: 'M12 21c-4-2-7-6-7-11a7 7 0 0114 0c0 5-3 9-7 11z',
+  nonveg_starters: 'M8 3c2 1 3 3 3 5l7 7a2.5 2.5 0 01-3.5 3.5L7 11c-2 0-4-1-5-3',
+  veg_mains: 'M12 21c-4-2-7-6-7-11a7 7 0 0114 0c0 5-3 9-7 11z',
+  main_courses: 'M4 13a8 8 0 0016 0H4z M12 3v2 M8 4l.5 1.5 M16 4l-.5 1.5',
+  tandoori: 'M12 3c-1.5 3-4.5 4.5-4.5 8.5a4.5 4.5 0 009 0C16.5 7.5 13.5 6 12 3z',
+  biryani: 'M5 11h14l-1 8a2 2 0 01-2 2H8a2 2 0 01-2-2l-1-8z M4 11a8 3 0 0016 0',
+  naan_rice: 'M4 8c4-3 12-3 16 0-2 2-2 5 0 7-4 3-12 3-16 0 2-2 2-5 0-7z',
+  desserts: 'M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3z M6 18h12',
+  cold_drinks: 'M7 4h10l-1 15a2 2 0 01-2 2h-4a2 2 0 01-2-2L7 4z M6 4h12 M9 9h6',
+  hot_drinks: 'M4 9h13v5a4 4 0 01-4 4H8a4 4 0 01-4-4V9z M17 10h1.5a2 2 0 010 4H17 M8 4c0 1-1 1-1 2 M12 4c0 1-1 1-1 2',
+};
+const FALLBACK_ICON_PATH = 'M8 3v6a2 2 0 002 2h0a2 2 0 002-2V3 M12 3v18 M16 3c-1.5 0-3 1.5-3 4s1.5 4 3 4v10';
+
+const CategoryIcon: React.FC<{ id: string }> = ({ id }) => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.6}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="shrink-0"
+  >
+    <path d={CATEGORY_ICON_PATHS[id] ?? FALLBACK_ICON_PATH} />
+  </svg>
+);
+
 export const CategoryNav: React.FC<CategoryNavProps> = ({
   categories,
   selectedCategory,
@@ -66,13 +104,15 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
           {/* 'All' Category Pill */}
           <button
             onClick={() => onSelectCategory('all')}
-            className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-md ${
+            className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 ${
               selectedCategory === 'all'
-                ? 'bg-gold-gradient text-[#0B0B0C] scale-105 shadow-gold-glow'
-                : 'bg-[#131315] text-zinc-200 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
+                ? 'bg-gold-gradient text-[#0B0B0C] border border-transparent'
+                : 'bg-[#131315] text-zinc-300 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
             }`}
           >
-            <span>✨</span>
+            <span className={selectedCategory === 'all' ? 'text-[#0B0B0C]' : 'text-[#C9A15A] opacity-85'}>
+              <CategoryIcon id="all" />
+            </span>
             <span>
               {lang === 'ar'
                 ? 'جميع الأطباق'
@@ -96,13 +136,15 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
               <button
                 key={cat.id}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-md whitespace-nowrap ${
+                className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 whitespace-nowrap ${
                   isSelected
-                    ? 'bg-gold-gradient text-[#0B0B0C] scale-105 shadow-gold-glow'
-                    : 'bg-[#131315] text-zinc-200 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
+                    ? 'bg-gold-gradient text-[#0B0B0C] border border-transparent'
+                    : 'bg-[#131315] text-zinc-300 border border-[#C9A15A]/25 hover:border-[#C9A15A] hover:text-white'
                 }`}
               >
-                <span className="text-sm sm:text-base">{cat.emoji}</span>
+                <span className={isSelected ? 'text-[#0B0B0C]' : 'text-[#C9A15A] opacity-85'}>
+                  <CategoryIcon id={cat.id} />
+                </span>
                 <span>{catName}</span>
               </button>
             );
